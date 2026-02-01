@@ -1,20 +1,20 @@
 # Out-of-Distribution (OOD) Detection using Vision Transformers
 We analyze out-of-distribution detection in Vision Transformers by modeling class-wise latent embeddings and evaluating Mahalanobis distance, softmax confidence, and entropy-based metrics on CIFAR-10, CIFAR-100, SVHN, and Food-101k to assess robustness under distribution shifts.
 
-Out-of-Distribution (OOD) Detection using Vision Transformers
+# Out-of-Distribution (OOD) Detection using Vision Transformers
 Overview
 
 Deep learning models typically achieve strong performance when test data follows the same distribution as the training data. However, their reliability degrades significantly when exposed to out-of-distribution (OOD) samples. This limitation poses serious risks in safety-critical applications such as autonomous driving, surveillance systems, and medical image analysis.
 
 Although Transformer-based models, particularly Vision Transformers (ViTs), have demonstrated impressive performance across vision tasks, their robustness to OOD data remains insufficient for real-world deployment. This project investigates the effectiveness of multiple OOD detection metrics applied to Vision Transformer latent representations for image classification tasks.
 
-Problem Statement
+# Problem Statement
 
 The goal of this work is to distinguish in-distribution (ID) samples from OOD samples by analyzing distributional shifts in the latent feature space learned by a fine-tuned Vision Transformer.
 
 We assume that OOD samples exhibit statistically significant deviations from ID samples in the model’s learned feature representations.
 
-OOD Detection Metrics
+# OOD Detection Metrics
 
 We evaluate three complementary metrics to measure distributional shift:
 
@@ -26,7 +26,7 @@ Entropy of Softmax Probabilities
 
 These metrics are computed using latent representations extracted from a fine-tuned Vision Transformer.
 
-Methodology
+# Methodology
 Feature Modeling
 
 A Vision Transformer is fine-tuned on the CIFAR-10 training set.
@@ -55,7 +55,7 @@ Entropy > threshold
 
 Otherwise, classify the sample as In-Distribution (ID).
 
-Datasets
+# Datasets
 
 The approach is evaluated using the following datasets:
 
@@ -67,7 +67,7 @@ SVHN
 
 Food-101k
 
-Experimental Setup
+# Experimental Setup
 
 Vision Transformer fine-tuned on CIFAR-10 for 30 epochs
 
@@ -87,7 +87,7 @@ Maximum softmax probability threshold: 0.5
 
 Entropy threshold: 1.0
 
-Results
+# Results
 Experiment 1: Distance + Softmax Confidence
 
 Model 1: CLS token embeddings
@@ -102,7 +102,7 @@ Experiment 2: Distance + Softmax Confidence + Entropy
 
 Adding entropy as an additional metric did not improve OOD detection performance for either representation.
 
-Key Findings
+# Key Findings
 
 Mahalanobis distance and softmax confidence are effective indicators of OOD samples.
 
